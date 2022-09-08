@@ -1,44 +1,66 @@
-# The Phone Cave (WD)
+# The Phone Cave catalogue
 
-  At The Phone Cave we are looking for someone to help us turn our cave store into a home, and to do so we present you this challenge.
+## Description
 
-## The challenge (Duration: 3 hours)
+An app to know the main characteristics of the phones in the catalogue.
 
-Your task consists of creating an app showing our catalog. Follow the steps detailed below to complete the task. **You have 3 hours to do so.**
+## User Stories
 
-### Iteration #1
-
-Create a REST API (NodeJS) server that meets the following requirements:
-
-
-| Route                 | HTTP Verb | Description    |
-| --------------------- | --------- | -------------- |
-| `/phones`             | GET       | Show all phones (use the `phones.json`) as fake data |
-| `/phones/:id`         | GET       | Show a phone details|
+-  **NotFound** I can see a NotFound page if I try to reach a page that does not exist so that I know it's my fault
+-  **Error** I can see an Error page if there is any error in the server.
+-  **List of Phones** I can see the list of phones from all the points of the app.
+-  **Phone details** I can see the details of an specific phone.
 
 
-### Iteration #2
+# Client
 
-Create a React application that communicates with the API you created before. Your React app should be using the **hooks** approach.
-- Use Axios (or a similar library) in order to obtain data from the REST API
-- Show a list with all the phones
-- When a phone model is selected from the list, a detailed view of the phone is shown with a few specific details displayed. This display should be on the same page than the list of phones. 
-- Show a spinner component or a position marker while the API request is processing (display a simulation if there is no loading time)
+## Routes
 
-### Iteration #3
+- / - Home
+- /phones/:phoneId - Phone information
+- /error - error page
+- /* - not found page
 
-Make it look **eye-appealing**. There is no need to develop a sophisticated design, but it should not look terrible when viewed from a phone. Add images of each device.
+## Pages
 
-Once done with this, do a pull request to submit your work. 
+- Home Page
+- Phone details Page
+- Error Page 
+- Not Found Page 
+
+## Components
+
+- PhonesList
 
 
-## Deadline
 
-You have three hours to work on this challenge.
-In the event that after three hours you do not have the MVP objectives ready, send the pull request indistinctly. This is a speed challenge.
+## Services
 
-## Must-have Deliverables
+- Config services
+- Phones services
 
-- Functioning code (server and client side)
-- Short README file describing what is the app about and add instructions on how to use it.
- 
+
+# Server
+
+## Models
+
+Phone model
+
+```
+id 
+name 
+manufacturer 
+description
+color
+price
+imageFileName
+screen
+processor
+ram 
+```
+
+## API Endpoints/Backend Routes
+
+**Phones routes**
+- GET /phones  => get list of phones
+- GET /phones/:id => get details of an specific phone
